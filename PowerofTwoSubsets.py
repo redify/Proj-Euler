@@ -14,6 +14,27 @@ Explanation:
 The subsequence that 
 can be chosen is {1},
 {2} and {1,2}.
+
+Intuition
+
+Think in terms of bits of product which we will obtain after multiplying the given numbers from the subset.
+Implementation
+
+From the properties of power of two, we can see that it can be expressed only as a product of numbers which itself is the power of 2.
+
+Proof : Suppose the numbers are power of 2 in the subset. Then only one bit will be set in each of those numbers . So if we will multiply them, then also there will be only one bit set in the product of them. 
+
+Example : If the subset is s=[2,4,8] . So we can represent them as [21, 22, 23] . Now if we multiply them then product equals 26. It has only one bit set (i.e. 6th bit) . So it is also power of 2. 
+
+So , we will count the number of elements in the array which are the power of 2 . 
+Then our final answer will be 2count-1. We subtracted 1 because we want non empty subsequence.
+Also don't forget to modular multiplication since answer can overflow.
+
+Note : Don't use inbuilt power function because we have to use modulo operation . So use fast exponentiation with modulo operation instead of it.
+Complexity
+
+Time Complexity: O(N), where N is size of the array.
+Space Complexity : O(1), no extra space is used.
 '''
 
 def isPowerOfTwo(num):
